@@ -17,7 +17,6 @@ export class CreateTodoItemHandler
   async execute(command: CreateTodoItemCommand): Promise<TodoItem> {
     const { todoListId, title, description, priority } = command;
 
-    // ایجاد تودوآیتم
     const todoItem = new TodoItem(
       null,
       todoListId,
@@ -27,7 +26,6 @@ export class CreateTodoItemHandler
     );
     const createdTodoItem = await this.todoItemRepository.create(todoItem);
 
-    // به‌روزرسانی آرایه todoItems تودولیست
     const todoList = await this.todoListRepository.findById(todoListId);
     if (!todoList) {
       throw new NotFoundException('TodoList not found');

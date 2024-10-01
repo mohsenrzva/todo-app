@@ -11,7 +11,7 @@ export class CreateTodoListHandler
 {
   constructor(
     private readonly todoListRepository: TodoListRepository,
-    private readonly userRepository: UserRepository, // اضافه کردن UserRepository
+    private readonly userRepository: UserRepository,
   ) {}
 
   async execute(command: CreateTodoListCommand): Promise<TodoList> {
